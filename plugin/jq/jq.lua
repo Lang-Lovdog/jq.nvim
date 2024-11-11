@@ -89,7 +89,7 @@ function Jq_command(horizontal,editfile)
     vim.keymap.del('n', '<leader>bd', { buffer = jq_bufnr })
   end
   kmap( 'n', '<leader>bd', function()
-      vim.cmd('bd!')
+      vim.cmd('bdelete!')
     end,
     { buffer = jq_bufnr }
   )
