@@ -85,9 +85,6 @@ function Jq_command(horizontal,editfile)
   vim.fn.win_gotoid(jq_winnr)
   
   -- setup keybindig for bufdelete query buffer
-  if vim.fn.maparg('<leader>bd', 'n') ~= '' then
-    vim.keymap.del('n', '<leader>bd', { buffer = jq_bufnr })
-  end
   kmap( 'n', '<leader>bd', function()
       vim.cmd('bdelete!')
     end,
@@ -97,9 +94,6 @@ function Jq_command(horizontal,editfile)
   -- setup keybindig for saving edited json
   if editfile == true then
     -- setup keybinding for writing edited json
-    if vim.fn.maparg('<C-s>', 'n') ~= '' then
-      vim.keymap.del('n', '<C-s>', { buffer = jq_bufnr })
-    end
     kmap( 'n', '<C-s>', function()
         -- go to json buffer and save
         vim.fn.win_gotoid(vim.fn.bufwinid(json_bufnr))
@@ -110,9 +104,6 @@ function Jq_command(horizontal,editfile)
       { buffer = jq_bufnr }
     )
     --setup keybinding for searching through jsonfly
-    if vim.fn.maparg('<C-a>', 'n') ~= '' then
-      vim.keymap.del('n', '<C-a>', { buffer = jq_bufnr })
-    end
     kmap( 'n', '<C-a>', function()
         -- go to json buffer and save
         vim.fn.win_gotoid(vim.fn.bufwinid(json_bufnr))
@@ -123,9 +114,6 @@ function Jq_command(horizontal,editfile)
     { buffer = jq_bufnr }
     )
     -- setup keybinding for undo
-    if vim.fn.maparg('<leader>uu', 'n') ~= '' then
-      vim.keymap.del('n', '<leader>uu', { buffer = jq_bufnr })
-    end
     kmap( 'n', '<leader>uu', function()
         -- go to json buffer and save
         vim.fn.win_gotoid(vim.fn.bufwinid(json_bufnr))
@@ -136,9 +124,6 @@ function Jq_command(horizontal,editfile)
     { buffer = jq_bufnr }
     )
     -- setup keybinding for redo
-    if vim.fn.maparg('<leader>rr', 'n') ~= '' then
-      vim.keymap.del('n', '<leader>rr', { buffer = jq_bufnr })
-    end
     kmap( 'n', '<leader>rr', function()
         -- go to json buffer and save
         vim.fn.win_gotoid(vim.fn.bufwinid(json_bufnr))
@@ -150,9 +135,6 @@ function Jq_command(horizontal,editfile)
     )
     -- setup keybinding autocmd in the filter buffer:
     -- editing json
-    if vim.fn.maparg('<CR>', 'n') ~= '' then
-      vim.keymap.del('n', '<CR>', { buffer = jq_bufnr })
-    end
     kmap( 'n', '<CR>', function()
         local filter = buf_text(jq_bufnr)
         -- Get filters separated by double newlines
@@ -170,9 +152,6 @@ function Jq_command(horizontal,editfile)
     )
     -- setup keybinding autocmd in the filter buffer:
     -- query json
-    if vim.fn.maparg('<leader><CR>', 'n') ~= '' then
-      vim.keymap.del('n', '<leader><CR>', { buffer = jq_bufnr })
-    end
     kmap( 'n', '<leader><CR>', function()
         local filter = buf_text(jq_bufnr)
         -- Get filters separated by double newlines
