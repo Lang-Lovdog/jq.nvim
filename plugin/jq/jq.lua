@@ -62,7 +62,7 @@ function Jq_command(horizontal,editfile)
   if horizontal == true then
     splitcmd = 'belowright new jq-filter'
     if editfile == true then
-      splitcmd2 = splitcmd2 .. 'vnew json-edit'
+      splitcmd2 = splitcmd2 .. ' json-edit'
       --reduce to 1/4 of the height
       splitcmd = splitcmd .. ' | resize 13'
     end
